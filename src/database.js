@@ -1,5 +1,5 @@
-import { createPool } from "mysql2"
-import {} from "mysql2/promise"
+import { createPool } from "mysql2/promise";
+
 
 const pool = createPool({
     host: 'localhost',

@@ -5,13 +5,14 @@ import morgan from 'morgan';
 import {join, dirname} from 'path';
 import { fileURLToPath } from 'url';
 import {engine} from 'express-handlebars';
+import productosRoutes from './routes/productos.routes.js'
 
 /* ----------------------------- Initialization ----------------------------- */
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 /* ----------------------------- Settings: configuracion puerto y plantillas---------------------------- */
-app.set('port', process.env.PORT || 3000)
+app.set('port', process.env.PORT || 4000)
 
 app.set('views', join(__dirname, 'views'));
 app.engine('.hbs', engine({
@@ -31,7 +32,9 @@ app.use(express.json());
 /* --------------------------------- Routes --------------------------------- */
 app.get('/', (req, res) => {
     res.render('index'); 
-})
+});
+
+app.use(productosRoutes);
 
 /* ------------------------------ Public Files ------------------------------ */
 app.use(express.static(join(__dirname, 'public')))
