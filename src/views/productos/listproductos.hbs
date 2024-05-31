@@ -8,8 +8,10 @@
             <thead>
                 <tr class="table-dark">
                     <th scope="col" class="col-4">Nombre Producto          </th>
-                    <th scope="col" class="col-4">Descripcion del Producto </th>
-                    <th scope="col" class="col-4">Acciones                 </th>
+                    <th scope="col">Descripcion del Producto </th>
+                    <th scope="col">Imagen                   </th>
+                    <th scope="col">Acciones                 </th>
+                    
                 </tr>
             </thead>
 
@@ -19,6 +21,7 @@
                 <tr>
                     <td>{{name}}</td>
                     <td>{{descripction}}</td>
+                    <td><img src="/uploads/{{imagen}}" class="card-img-top mx-auto m-2 rounded-circle" style="width: 150px; height: 150px; display: block;"></td>
                     <td>
                         <div class="btn-grow">
                             <a href="/editproductos/{{id}}" class="btn btn-warning p-2">

@@ -12,7 +12,7 @@ const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 /* ----------------------------- Settings: configuracion puerto y plantillas---------------------------- */
-app.set('port', process.env.PORT || 4000)
+app.set('port', process.env.PORT || 3000)
 
 app.set('views', join(__dirname, 'views'));
 app.engine('.hbs', engine({

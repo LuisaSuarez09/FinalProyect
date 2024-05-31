@@ -6,13 +6,17 @@
                     <h3 class="text-uppercase">Editar Producto</h3>
                 </div>
                 <div class="card-body">
-                    <form action="/editproductos/{{producto.id}}" method="post">
+                    <form action="/editproductos/{{producto.id}}" method="post" enctype="multipart/form-data">
                     <div class="input group mt-2">
                         <label for="name" class="input-group-text">Nombre Producto</label>
                         <input class="form-control" type="text" name="name" id="name" placeholder="Ejemplo: Latte" value="{{producto.name}}" autofocus required>
 
                         <label for="descripction" class="input-group-text">Descripcion Producto</label>
                         <input class="form-control" type="text" name="descripction" id="descripction" placeholder="Ejemplo: Espuma Suave y Sedosa" value="{{producto.descripction}}" required>
+
+                        <div class="imput-group mt-2">
+                            <input class="form-control" type="file" name="file" id="file">
+                        </div>
 
                         <div class="form-group mt-4 d-grid gap-2">
                             <button class="btn btn-success">Actualizar Pedido</button>
