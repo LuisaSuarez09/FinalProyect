@@ -6,6 +6,7 @@ import {join, dirname} from 'path';
 import { fileURLToPath } from 'url';
 import {engine} from 'express-handlebars';
 import productosRoutes from './routes/productos.routes.js'
+import preciosRoutes from './routes/precios.routes.js'
 
 /* ----------------------------- Initialization ----------------------------- */
 const app = express();
@@ -34,7 +35,11 @@ app.get('/', (req, res) => {
     res.render('index'); 
 });
 
+
+/* ----------------------------------- En este apartado de rutas se estan tomando los import de la ruta: routes tanto productos como precios para que se puedan usar en la aplicacion  ----------------------------------- */
 app.use(productosRoutes);
+
+app.use(preciosRoutes);
 
 /* ------------------------------ Public Files ------------------------------ */
 app.use(express.static(join(__dirname, 'public')))
