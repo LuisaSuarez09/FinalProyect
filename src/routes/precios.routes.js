@@ -43,5 +43,36 @@ router.get('/deleteprecios/:id', async(req, res) => {
     }
 });
 
+
+/* --------------------------------- Editar --------------------------------- */
+router.get('/editprecios/:id', async (req, res) => {
+    try {
+        const {id} = req.params
+        const [precio] = await pool.query('SELECT * FROM precios WHERE id = ?', [id]);
+        const precioEdit = precio[0]
+        res.render('precios/editprecios', { precio : precioEdit });
+
+
+    } catch (error) {
+        res.status(500).json({message: error.message});
+    }
+});
+
+router.post('/editprecios/:id', async (req, res) => {
+    try {
+        const {id} = req.params
+        const {nameplan, precioplan, timeplan, descripcion} = req.body
+        const editPrecio = {nameplan, precioplan, timeplan, descripcion}
+        await pool.query('UPDATE precios SET ? WHERE id = ?', [editPrecio, id]);
+        res.redirect('/listprecios');
+
+
+    } catch (error) {
+        res.status(500).json({message: error.message});
+    }
+});
+
+
+
 export default router;
 
