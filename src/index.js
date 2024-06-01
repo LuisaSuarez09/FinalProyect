@@ -7,6 +7,7 @@ import { fileURLToPath } from 'url';
 import {engine} from 'express-handlebars';
 import productosRoutes from './routes/productos.routes.js'
 import preciosRoutes from './routes/precios.routes.js'
+import nosotrosRoutes from './routes/nosotros.routes.js'
 
 /* ----------------------------- Initialization ----------------------------- */
 const app = express();
@@ -40,6 +41,8 @@ app.get('/', (req, res) => {
 app.use(productosRoutes);
 
 app.use(preciosRoutes);
+
+app.use(nosotrosRoutes);
 
 /* ------------------------------ Public Files ------------------------------ */
 app.use(express.static(join(__dirname, 'public')))
