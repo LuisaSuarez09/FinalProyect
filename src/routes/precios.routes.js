@@ -72,6 +72,12 @@ router.post('/editprecios/:id', async (req, res) => {
     }
 });
 
+/* -------------------------- pagina de promociones ------------------------- */
+
+router.get('/promociones', (req, res) => {
+    res.render('precios/promociones')
+});
+
 
 
 export default router;

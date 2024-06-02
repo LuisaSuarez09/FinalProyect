@@ -115,6 +115,11 @@ router.post('/editproductos/:id',uploads.single('file'), async (req, res)=> {
 });
 
 
+/* --------------------------- pagina de productos -------------------------- */
+
+router.get('/productos', (req, res) => {
+    res.render('productos/productos')
+});
 
 
 export default router;
