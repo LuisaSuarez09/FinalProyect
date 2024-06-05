@@ -45,14 +45,14 @@ router.post('/addproductos', uploads.single('file'),async (req, res)=> {
             }
         }
     
-        await pool.query('INSERT INTO productos SET id = ?', [newProducto]);
+        await pool.query('INSERT INTO productos SET ?', [newProducto]);
         res.redirect('/listproductos');
     } catch (error) {
         res.status(500).json({message: error.message});
     }
 })
 
-//Lista todos los datos
+//Lista todos los datos 
 router.get('/listproductos', async(req, res) => {
     try {
         const [result] = await pool.query('SELECT * FROM productos');
@@ -123,3 +123,5 @@ router.get('/productos', (req, res) => {
 
 
 export default router;
+
+
